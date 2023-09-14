@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './main-content/header/header.component';
 import { MainContentComponent } from './main-content/main-content.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './main-content/footer/footer.component';
 import { MessageService } from './message.service';
 import { ProductListComponent } from './product-list/product-list.component';
 
