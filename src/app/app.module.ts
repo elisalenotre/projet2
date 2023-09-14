@@ -1,5 +1,3 @@
-// app.module.ts
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { FooterComponent } from './footer/footer.component';
 import { MessageService } from './message.service';
-import { ContactComponent } from './contact/contact.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +16,7 @@ import { ContactComponent } from './contact/contact.component';
     HeaderComponent,
     MainContentComponent,
     FooterComponent,
-    ContactComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
