@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product.model';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -8,13 +9,28 @@ import { Product } from '../product.model';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = [];
+  products$: Observable<Product[]> = of([]);
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
+    this.products$ = this.productService.getProducts();
+  }
+
+  sortBy(nameOrPrice: 'name' | 'price'): void {
+    this.products$.subscribe((products) => {
+      products.sort((a, b) => {
+        if (nameOrPrice === 'name') {
+          return a.name.localeCompare(b.name);
+        } else if (nameOrPrice === 'price') {
+          if (a.price !== undefined && b.price !== undefined) {
+            return a.price - b.price;
+          }
+          return 0;
+        }
+        return 0;
+      });
+      this.productService.updateProducts([...products]);
     });
   }
 }

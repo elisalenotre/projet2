@@ -1,7 +1,9 @@
 <div>
     <h2>Liste des Produits</h2>
+    <button (click)="sortBy('name')">Trier par Nom</button>
+    <button (click)="sortBy('price')">Trier par Prix</button>
     <ul>
-      <li *ngFor="let product of products">
+      <li *ngFor="let product of (products$ | async)">
         {{ product.name }} - {{ product.price }} $
       </li>
     </ul>
