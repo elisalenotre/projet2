@@ -1,1 +1,8 @@
-<p>header works!</p>
+<div>
+    <h2>En-tête</h2>
+    <form (ngSubmit)="onSubmit()">
+      <input type="text" [(ngModel)]="newMessage" placeholder="Nouveau message" />
+      <button type="submit">Mettre à jour</button>
+    </form>
+  </div>
+  
